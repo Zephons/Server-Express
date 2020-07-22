@@ -24,6 +24,7 @@ router.get('/:username', function (req, res, next) {
         }
         tw.forEach(function (item) {
             obj = {
+                'userfullname': item.user.name,
                 'username': item.user.screen_name,
                 'tweet_text': item.text,
                 'created_at': moment(item.created_at, 'dd MMM DD HH:mm:ss ZZ YYYY', 'CET').format('DD/MM/YYYY, HH:mm A'),
