@@ -18,21 +18,22 @@ var tw, arr = [];
 router.get('/:username', function (req, res, next) {
     var params = { screen_name: req.params.username };
     client.get('statuses/user_timeline', params, (error, tweets, response) => {
-        if (!error && tweets != null) {
+        if (!error && tweets !== null) {
             tw = tweets;
             arr = [];
-        }
-        tw.forEach(function (item) {
-            obj = {
-                'userfullname': item.user.name,
-                'username': item.user.screen_name,
-                'tweet_text': item.text,
-                'created_at': moment(item.created_at, 'dd MMM DD HH:mm:ss ZZ YYYY', 'CET').format('DD/MM/YYYY, HH:mm A'),
-                'sentiment': sentiment.analyze(item.text)
-            };
-            arr.push(obj);
-        });
-        res.send(arr);
+            tw.forEach(function (item) {
+                obj = {
+                    'userfullname': item.user.name,
+                    'username': item.user.screen_name,
+                    'tweet_text': item.text,
+                    'created_at': moment(item.created_at, 'dd MMM DD HH:mm:ss ZZ YYYY', 'CET').format('DD/MM/YYYY, HH:mm A'),
+                    'sentiment': sentiment.analyze(item.text)
+                };
+                arr.push(obj);
+            });
+            res.send(arr);
+        } 
+        else { res.send(error); }
     });
 });
 
