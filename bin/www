@@ -7,10 +7,10 @@
 var app = require('../app');
 var debug = require('debug')('server-express:server');
 var http = require('http');
-var dotenv = require('dotenv');
-dotenv.config(
-  //{path: '../.env'}
-  );
+//var dotenv = require('dotenv');
+//dotenv.config(
+//{path: '../.env'} //not mandatory, coz par default it searches at the root
+//);
 
 /**
  * Get port from environment and store in Express.
