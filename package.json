@@ -12,7 +12,7 @@
     "cors": "^2.8.5",
     "debug": "~2.6.9",
     "express": "~4.16.1",
-    "moment": "^2.27.0",
+    "moment": "^2.29.2",
     "morgan": "~1.9.1",
     "sentiment": "^5.0.2",
     "twitter": "^1.7.1"
